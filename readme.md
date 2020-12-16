@@ -15,8 +15,8 @@
 
 
 ## Versions
-* Dernière version stable : 0.1
-* Dernière version : 0.1
+* Dernière version stable : **v0.1**
+* Dernière version : **v0.1**
 * Liste des versions : [Cliquer pour afficher](https://github.com/Kaesor/Vodka-Blue/tags)
 
 ## Auteurs
