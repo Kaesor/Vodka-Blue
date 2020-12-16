@@ -4,7 +4,6 @@
 [![](https://img.shields.io/badge/discordjs-v12.5.1-blue.svg?style=flat-square)](https://www.npmjs.com/package/discord.js)
 [![](https://img.shields.io/badge/version-v0.1-blue.svg?style=flat-square)](https://github.com/Kaesor/Vodka-Blue)
 
-
 > Bot du discord Vodka Blue, guilde sur le serveur Ilyzael, du jeu Dofus.
 
 ## Fabriqué avec
@@ -13,7 +12,6 @@
 * [Node.js](https://nodejs.org/fr/) - Environnement d’exécution JavaScript
 * [SublimText](https://www.sublimetext.com/) - Editeur de textes
 
-
 ## Versions
 * Dernière version stable : **v0.1**
 * Dernière version : **v0.1**
@@ -21,7 +19,6 @@
 
 ## Auteurs
 * **Hugo Chahine** _alias_ [@Kaesor](https://github.com/Kaesor)
-
 
 ## License
 
