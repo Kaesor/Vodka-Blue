@@ -1,3 +1,6 @@
+<img width="150" height="150" align="left" style="float: left; margin: 0 10px 0 0;" alt="Atlanta" src="https://i.goopics.net/pl23P.png">  
+
+
 # Vodka Blue Bot
 
 [![](https://img.shields.io/discord/372371393783791629?style=flat-square&logo=discord)](https://discord.com/)
