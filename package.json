@@ -1,0 +1,22 @@
+{
+  "name": "vodka-blue",
+  "version": "0.1.0",
+  "description": "Bot Discord Vodka Blue",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kaesor/Vodka-Blue.git"
+  },
+  "author": "Kaesor",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Kaesor/Vodka-Blue/issues"
+  },
+  "homepage": "https://github.com/Kaesor/Vodka-Blue#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  }
+}
