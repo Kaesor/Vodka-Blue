@@ -10,7 +10,8 @@
 
 * [Discord.js](https://discord.js.org/#/) - Module pour intéragir avec Discord API
 * [Node.js](https://nodejs.org/fr/) - Environnement d’exécution JavaScript
-* [SublimText](https://www.sublimetext.com/) - Editeur de textes
+* [Visual Studio Code](https://code.visualstudio.com/) - Editeur de textes
+* [SourceTree](https://www.sourcetreeapp.com/) - Client Git GUI
 
 ## Versions
 * Dernière version stable : **v0.1**
