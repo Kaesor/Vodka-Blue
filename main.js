@@ -1,11 +1,10 @@
-const { Client, Collection } = require('discord.js');
+const { Client, Collection, UserFlags } = require('discord.js');
 const { TOKEN, PREFIX } = require('./config');
 const { readdirSync } = require("fs");
 
 const vbbot = new Client();
 // vbbot.commands, vbbot.cooldowns
 ["commands", "cooldowns"].forEach(x => vbbot[x] = new Collection());
-
 
 // Recupération des différents fichiers de commandes
 const loadCommands = (dir = "./commands/") => {
@@ -27,9 +26,14 @@ vbbot.on('message', msg => {
     if (!msg.content.startsWith(PREFIX) || msg.author.bot) return;
     const args = msg.content.slice(PREFIX.length).split(/ +/);
     const commandName = args.shift().toLowerCase();
-    // Vérification avec aliases
+    const user = msg.mentions.users.first();
+
+  // Vérification avec aliases
     const command = vbbot.commands.get(commandName) || vbbot.commands.find(cmd => cmd.help.aliases && cmd.help.aliases.includes(commandName));
     if (!command) return;
+
+  // Protection de la commande si l'utilisateur a la permissions
+    if(command.help.permissions && !msg.member.hasPermission('BAN_MEMBERS')) return msg.reply("Tu n'as pas les permissions pour taper cette commande !");
 
   // Verification des arguments
     if (command.help.args && !args.length) {
@@ -37,6 +41,12 @@ vbbot.on('message', msg => {
       if (command.help.usage) noArgsReply += `\nVoici comment utiliser la commande : \`${PREFIX}${command.help.name} ${command.help.usage}\``
       return msg.channel.send(noArgsReply);
     }
+
+  // Verification si l'utilisateur a été mentionné
+    if (command.help.isUserAdmin && !user) return msg.reply('Il faut mentionner un utilisateur !');
+
+  // Protection des utilisateurs avec permission
+    if(command.help.isUserAdmin && msg.guild.member(msg.mentions.users.first()).hasPermission('BAN_MEMBERS')) return msg.reply("Tu ne peux pas utiliser cette commande sur cette utilisateur !");
 
   // Vérification du cooldown
     if (!vbbot.cooldowns.has(command.help.name)) {
@@ -55,15 +65,13 @@ vbbot.on('message', msg => {
       }
     }
     // Ajout de l'utilisateur dans la collection
-    tStamps.set(msg.author.id, timeNow);
+      tStamps.set(msg.author.id, timeNow);
     // Utilisateur supprimé suite au temps restant
-    setTimeout(() => tStamps.delete(msg.author.id), cdAmount);
-
+      setTimeout(() => tStamps.delete(msg.author.id), cdAmount);
 
   // Lancement des commandes
     command.run(vbbot, msg, args);
 });
-
 
 // Connexion du bot
 vbbot.on('ready', () => {console.log(`${vbbot.user.tag} bien connecté !`);});

@@ -7,8 +7,11 @@ module.exports.run = (vbbot, msg, args) => {
 module.exports.help = {
   name : 'say',
   aliases: ['repeat', 'rep', 'dit'],
+  category: 'misc',
   description: 'Répète le message d\'un utilisateur',
   cooldown: 10,
   usage : '<votre_message>',
+  isUserAdmin: false,
+  permission: false,
   args : true
 };
